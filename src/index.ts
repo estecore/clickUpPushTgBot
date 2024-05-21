@@ -22,7 +22,7 @@ const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 
 if (!TELEGRAM_BOT_TOKEN) {
   console.error(
-    "Не удалось найти токен бота в переменных окружения. Убедитесь, что он находится в файле .env и назван как TELEGRAM_BOT_TOKEN"
+    "Could not find bot token in environment variables. Make sure it is in the .env file and named as TELEGRAM_BOT_TOKEN"
   );
   process.exit(1);
 }
