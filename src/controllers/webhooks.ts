@@ -28,7 +28,7 @@ export const createTask =
       for (const user of users) {
         const message = formatMessage({
           data,
-          messageName: "Created new Task!",
+          messageName: "Добавлена новая таска!",
         });
 
         await bot.sendMessage(user.telegramId, message, {
@@ -66,7 +66,7 @@ export const addComment =
       for (const user of users) {
         const message = formatMessage({
           data,
-          messageName: "Add new Comment!",
+          messageName: "Добавлен новый комментарий!",
         });
 
         await bot.sendMessage(user.telegramId, message, {
@@ -101,7 +101,7 @@ export const addAssignee =
       for (const user of users) {
         const message = formatMessage({
           data,
-          messageName: "Add new Assignee!",
+          messageName: "Добавлен новый ответственный!",
         });
 
         await bot.sendMessage(user.telegramId, message, {
@@ -136,7 +136,7 @@ export const updatePriority =
       for (const user of users) {
         const message = formatMessage({
           data,
-          messageName: "Priority updated!",
+          messageName: "Приоритет обновлён!",
         });
 
         await bot.sendMessage(user.telegramId, message, {
@@ -171,7 +171,7 @@ export const updateStatus =
       for (const user of users) {
         const message = formatMessage({
           data,
-          messageName: "Status updated!",
+          messageName: "Статус обновлён!",
         });
 
         await bot.sendMessage(user.telegramId, message, {
