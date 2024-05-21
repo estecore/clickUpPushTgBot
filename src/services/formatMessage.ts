@@ -6,7 +6,7 @@ export const formatMessage = ({ data, messageName }: MessageProps): string => {
     description.length > 0 ? description : "No description"
   }\n\nStatus: ${status.status}\nPriority: ${
     priority ? priority.priority : "No priority"
-  }\nAssignee: ${assignees
+  }\n\nAssignee: ${assignees
     .map((assignee) => assignee.username)
     .join(", ")}\n\nClick here to view: \n${url}`;
 };

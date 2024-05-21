@@ -7,9 +7,10 @@ import TelegramBot from "node-telegram-bot-api";
 import { User } from "./database";
 import {
   createTask,
+  addComment,
   addAssignee,
-  updateStatus,
   updatePriority,
+  updateStatus,
 } from "./controllers/webhooks";
 
 dotenv.config();
@@ -65,7 +66,10 @@ bot.on("message", async (msg: TelegramBot.Message) => {
       });
 
       if (created) {
-        bot.sendMessage(chatId, "Вы успешно зарегистрированы!");
+        bot.sendMessage(
+          chatId,
+          `Вы успешно зарегистрированы!\n\n Теперь Вы сможете получать уведомления о тасках прямо здесь прямо от меня!`
+        );
       } else {
         user.clickUpId = clickUpId;
         await user.save();
@@ -81,9 +85,10 @@ bot.on("message", async (msg: TelegramBot.Message) => {
 });
 
 app.post("/createtask", createTask(bot));
+app.post("/addcomment", addComment(bot));
 app.post("/assadd", addAssignee(bot));
-app.post("/status", updateStatus(bot));
 app.post("/priority", updatePriority(bot));
+app.post("/status", updateStatus(bot));
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
