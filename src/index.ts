@@ -4,7 +4,6 @@ import express from "express";
 import bodyParser from "body-parser";
 import TelegramBot from "node-telegram-bot-api";
 
-import { User } from "./database";
 import {
   createTask,
   addComment,
