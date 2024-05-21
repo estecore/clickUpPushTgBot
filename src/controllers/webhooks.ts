@@ -31,7 +31,9 @@ export const createTask =
           messageName: "Created new Task!",
         });
 
-        await bot.sendMessage(user.telegramId, message);
+        await bot.sendMessage(user.telegramId, message, {
+          parse_mode: "Markdown",
+        });
       }
       res.sendStatus(200);
     } catch (error) {
@@ -67,7 +69,9 @@ export const addComment =
           messageName: "Add new Comment!",
         });
 
-        await bot.sendMessage(user.telegramId, message);
+        await bot.sendMessage(user.telegramId, message, {
+          parse_mode: "Markdown",
+        });
       }
       res.sendStatus(200);
     } catch (error) {
@@ -100,7 +104,9 @@ export const addAssignee =
           messageName: "Add new Assignee!",
         });
 
-        await bot.sendMessage(user.telegramId, message);
+        await bot.sendMessage(user.telegramId, message, {
+          parse_mode: "Markdown",
+        });
       }
       res.sendStatus(200);
     } catch (error) {
@@ -133,7 +139,9 @@ export const updatePriority =
           messageName: "Priority updated!",
         });
 
-        await bot.sendMessage(user.telegramId, message);
+        await bot.sendMessage(user.telegramId, message, {
+          parse_mode: "Markdown",
+        });
       }
       res.sendStatus(200);
     } catch (error) {
@@ -166,7 +174,9 @@ export const updateStatus =
           messageName: "Status updated!",
         });
 
-        await bot.sendMessage(user.telegramId, message);
+        await bot.sendMessage(user.telegramId, message, {
+          parse_mode: "Markdown",
+        });
       }
       res.sendStatus(200);
     } catch (error) {
