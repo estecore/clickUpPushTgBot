@@ -4,13 +4,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import TelegramBot from "node-telegram-bot-api";
 
-import {
-  createTask,
-  addComment,
-  addAssignee,
-  updatePriority,
-  updateStatus,
-} from "./controllers/webhooks";
+import { botNotification } from "./controllers/webhooks";
 import { setupBotHandlers } from "./controllers/botHandlers";
 
 dotenv.config();
@@ -33,11 +27,11 @@ app.use(bodyParser.json());
 
 setupBotHandlers(bot);
 
-app.post("/createtask", createTask(bot));
-app.post("/addcomment", addComment(bot));
-app.post("/assadd", addAssignee(bot));
-app.post("/priority", updatePriority(bot));
-app.post("/status", updateStatus(bot));
+app.post("/createtask", botNotification(bot, "Добавлена новая таска!"));
+app.post("/addcomment", botNotification(bot, "Добавлен новый комментарий!"));
+app.post("/assadd", botNotification(bot, "Добавлен новый ответственный!"));
+app.post("/priority", botNotification(bot, "Приоритет обновлён!"));
+app.post("/status", botNotification(bot, "Статус обновлён!"));
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
