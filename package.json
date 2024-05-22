@@ -39,7 +39,7 @@
   },
   "main": "index.ts",
   "keywords": [],
-  "author": "",
+  "author": "Estecore",
   "license": "ISC",
-  "description": ""
+  "description": "telegram bot for clickup integrations and notifications"
 }
