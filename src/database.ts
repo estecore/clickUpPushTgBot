@@ -5,14 +5,14 @@ const sequelize = new Sequelize({
   storage: "database.sqlite",
 });
 
-class User extends Model {
+class UserClickUp extends Model {
   public id!: number;
   public telegramId!: string;
   public clickUpId!: string;
   clickUpEmail: string | undefined;
 }
 
-User.init(
+UserClickUp.init(
   {
     telegramId: {
       type: DataTypes.STRING,
@@ -26,10 +26,10 @@ User.init(
   },
   {
     sequelize,
-    modelName: "User",
+    modelName: "UserClickUp",
   }
 );
 
 sequelize.sync();
 
-export { sequelize, User };
+export { sequelize, UserClickUp };
