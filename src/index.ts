@@ -1,8 +1,15 @@
+import dotenv from "dotenv";
+import path from "path";
+
 import express from "express";
 
 import clickupRoutes from "./routes/clickupRoutes";
 
 import clickupBotService from "./services/clickupBotService";
+
+dotenv.config({
+  path: path.resolve(__dirname, `../config/env/.env`),
+});
 
 const app = express();
 

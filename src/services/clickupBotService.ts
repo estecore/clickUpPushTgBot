@@ -1,16 +1,10 @@
-import dotenv from "dotenv";
-import path from "path";
-
-import { Assignee, Watcher } from "../config/types";
+import { Assignee, Data, Watcher } from "../config/types";
 import TelegramBot, { ChatId } from "node-telegram-bot-api";
 
 import { UserClickUp } from "../database";
 
 import formatMessage from "../utils/formatMessage";
-
-dotenv.config({
-  path: path.resolve(__dirname, `../config/env/.env`),
-});
+import { emailPattern } from "../helpers";
 
 const CLICKUP_BOT_TOKEN = process.env.CLICKUP_BOT_TOKEN;
 
@@ -24,8 +18,6 @@ if (!CLICKUP_BOT_TOKEN) {
 const clickupBot = new TelegramBot(CLICKUP_BOT_TOKEN, {
   polling: true,
 });
-
-const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const userStates: { [key: string]: string } = {};
 
@@ -174,7 +166,7 @@ class clickupBotService {
     });
   }
 
-  public async newMessage(data: any, message: string) {
+  public async newMessage(data: Data, message: string) {
     console.log(data);
     return new Promise(async (resolve, reject) => {
       try {
