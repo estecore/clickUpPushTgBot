@@ -5,17 +5,18 @@ import { UserClickUp } from "../database";
 
 import formatMessage from "../utils/formatMessage";
 import { emailPattern } from "../helpers";
+import { CLICKUP_BOT_TOKEN } from "../config";
 
-const CLICKUP_BOT_TOKEN = process.env.CLICKUP_BOT_TOKEN;
+const BOT_TOKEN = CLICKUP_BOT_TOKEN;
 
-if (!CLICKUP_BOT_TOKEN) {
+if (!BOT_TOKEN) {
   console.error(
-    "Could not find bot token in environment variables. Make sure it is in the .env file and named as CLICKUP_BOT_TOKEN"
+    "Could not find bot token in environment variables. Make sure it is in the .env file and named as BOT_TOKEN"
   );
   process.exit(1);
 }
 
-const clickupBot = new TelegramBot(CLICKUP_BOT_TOKEN, {
+const clickupBot = new TelegramBot(BOT_TOKEN, {
   polling: true,
 });
 
