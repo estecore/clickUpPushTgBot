@@ -1,0 +1,1 @@
+export { emailPattern } from "./validation";

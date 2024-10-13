@@ -1,12 +1,14 @@
 import express from "express";
 
+import { PORT } from "./config";
+
 import clickupRoutes from "./routes/clickupRoutes";
 
 import clickupBotService from "./services/clickupBotService";
 
 const app = express();
 
-const port = process.env.PORT || 1337;
+const port = PORT || 1337;
 
 app.use("/clickup/", clickupRoutes);
 
